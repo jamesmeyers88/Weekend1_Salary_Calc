@@ -25,11 +25,18 @@ function addEmployee(){
     // store Employee in allEmployees array
     allEmployees.push(newEmployee);
     displayEmployees();
+    emptyFields();
 }//end storeEmployee
 
 function calcMonthly(){
     console.log('in calcMonthly');
+    //convert stored salary to integer
+    let salary = parseInt(employee.salary)
+    console.log(salary);
     // use stored employee info to calc totalMonthly
+    for(employee of allEmployees){
+         
+    };
     // append totalMonthly to DOM
     // if monthly >$20k change background to red
 }// end calcMonthly
@@ -55,6 +62,10 @@ function displayEmployees(){
             outputString += employee.salary;
         employeeInfo.append(outputString);
     }// end for
-    // clear input fields
 }// end displayEmployees
+
+function emptyFields(){
+    console.log('in emptyFields');
+    $('.inputField').val('');
+}//end emptyFields
 
