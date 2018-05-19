@@ -4,7 +4,7 @@ $(document).ready(onReady);
 let allEmployees = [];
 
 class Employee {
-    constructor (first, last, id, title, salary){
+    constructor(first, last, id, title, salary) {
         this.first = first;
         this.last = last;
         this.id = id;
@@ -12,12 +12,12 @@ class Employee {
         this.salary = salary;
     }
 } //end Employee
-function onReady(){
+function onReady() {
     console.log('ready!');
     $('#submitButton').on('click', addEmployee);
 }//end onReady
 
-function addEmployee(){
+function addEmployee() {
     console.log('in storeEmployee');
     // get employee info
     let newEmployee = new Employee($('#firstIn').val(), $('#lastIn').val(), $('#idIn').val(), $('#jobTitleIn').val(), $('#annualIn').val());
@@ -26,46 +26,47 @@ function addEmployee(){
     allEmployees.push(newEmployee);
     displayEmployees();
     emptyFields();
+    calcMonthly();
 }//end storeEmployee
 
-function calcMonthly(){
+function calcMonthly() {
     console.log('in calcMonthly');
-    //convert stored salary to integer
-    let salary = parseInt(employee.salary)
-    console.log(salary);
+    let sum = 0;
     // use stored employee info to calc totalMonthly
-    for(employee of allEmployees){
-         
-    };
+    for (employee of allEmployees) {
+        sum += Number(employee.salary);
+    };// end for
     // append totalMonthly to DOM
+    let totalMonthly = sum;
+    $('#totalSpot').append('<div>' + totalMonthly + '</div>');
+    console.log(sum);
+    return sum;
     // if monthly >$20k change background to red
 }// end calcMonthly
 
-function displayEmployees(){
+function displayEmployees() {
     console.log('in displayEmployees');
     //target output to save as variable
-    let employeeInfo = $('#outputElement');
+    let employeeInfo = $('#tableBody');
     //empty output div
     employeeInfo.empty();
     //loop through array
-    for(employee of allEmployees){
+    for (employee of allEmployees) {
         // append employee info to DOM
-        let outputString = '<div>';
-            outputString += employee.first;
-            outputString += ' ';
-            outputString += employee.last;
-            outputString += ' ';
-            outputString += employee.id;
-            outputString += ' ';
-            outputString += employee.title;
-            outputString += ' ';
-            outputString += employee.salary;
+        let outputString = '<tr>';
+        outputString += '<td>' + employee.first + '</td>';
+        outputString += '<td>' + employee.last + '</td>';
+        outputString += '<td>' + employee.id + '</td>';
+        outputString += '<td>' + employee.title + '</td>';
+        outputString += '<td>' + employee.salary + '</td>';
+        outputString += '</tr>'
         employeeInfo.append(outputString);
     }// end for
 }// end displayEmployees
 
-function emptyFields(){
+function emptyFields() {
     console.log('in emptyFields');
     $('.inputField').val('');
 }//end emptyFields
+
 

@@ -11,21 +11,39 @@
 </head>
 <body>
    <h1>Employee Salary Calculator</h1>
-   <div id="input">
+   <section id="input">
         <h2>Add Employee</h2>
-        <form id="employeeForm">
-            <input type="text" placeholder="First Name" id="firstIn" class="inputField">
-            <input type="text" placeholder="Last Name" id="lastIn" class="inputField">
-            <input type="number" placeholder="ID #" id="idIn" class="inputField">
-            <input type="text" placeholder="Job Title" id="jobTitleIn" class="inputField">
-            <input type="number" placeholder="Annual Salary" id="annualIn" class="inputField">
-            <button id="submitButton">Submit</button>
-        </form>
-        
-   </div>
-   <div id="output">
+        <input type="text" placeholder="First Name" id="firstIn" class="inputField" class="clearMe">
+        <input type="text" placeholder="Last Name" id="lastIn" class="inputField" class="clearMe">
+        <input type="number" placeholder="ID #" id="idIn" class="inputField" class="clearMe">
+        <input type="text" placeholder="Job Title" id="jobTitleIn" class="inputField" class="clearMe">
+        <input type="number" placeholder="Annual Salary" id="annualIn" class="inputField" class="clearMe">
+        <button id="submitButton">Submit</button>
+   </section>
+   <section id="output">
         <h2>Employees</h2>
-        <div id="outputElement"></div>
-   </div>
+        <div id="outputElement">
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID Number</th>
+                        <th>Job Title</th>
+                        <th>Annual Salary</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+                <tfoot id="tableFooter">
+
+                </tfoot>
+            </table>
+        </div>
+        <div id="totalSpot">
+
+        </div>
+   </section>
 </body>
 </html>
