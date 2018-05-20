@@ -19,28 +19,23 @@ function onReady() {
 
 function addEmployee() {
     console.log('in storeEmployee');
-    // get employee info
     let newEmployee = new Employee($('#firstIn').val(), $('#lastIn').val(), $('#idIn').val(), $('#jobTitleIn').val(), $('#annualIn').val());
     console.log(newEmployee);
     // store Employee in allEmployees array
     allEmployees.push(newEmployee);
+    $('.inputField').val('');
     displayEmployees();
-    emptyFields();
     calcMonthly();
 }//end storeEmployee
 
 function calcMonthly() {
-    console.log('in calcMonthly');
     let sum = 0;
-    // use stored employee info to calc totalMonthly
     for (employee of allEmployees) {
-        sum += Number(employee.salary);
+        sum += (employee.salary/12).toFixed(2);
     };// end for
-    // append totalMonthly to DOM
-    let totalMonthly = sum;
-    $('#totalSpot').append('<div>' + totalMonthly + '</div>');
-    console.log(sum);
-    return sum;
+    // append to DOM
+    $('#totalSpot').empty();
+    $('#totalSpot').append('<div>Total Monthly Salary Expense: ' + sum + '</div>');
     // if monthly >$20k change background to red
 }// end calcMonthly
 
@@ -63,10 +58,4 @@ function displayEmployees() {
         employeeInfo.append(outputString);
     }// end for
 }// end displayEmployees
-
-function emptyFields() {
-    console.log('in emptyFields');
-    $('.inputField').val('');
-}//end emptyFields
-
 

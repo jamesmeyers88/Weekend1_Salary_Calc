@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/styles.css">
     <script src="vendors/jquery-3.3.1.min.js"></script>
     <script src="scripts/client.js"></script>
     <title>Employee Salary Calculator</title>
 </head>
 <body>
-   <h1>Employee Salary Calculator</h1>
-   <section id="input">
+    <header>
+        <h1>Employee Salary Calculator</h1>
+    </header>
+   <section id="input" class="container">
+        <div class="col-md-2.4">
+            <input type="text" placeholder="First Name" id="firstIn" class="inputField">
+            <input type="text" placeholder="Last Name" id="lastIn" class="inputField">
+            <input type="number" placeholder="ID #" id="idIn" class="inputField">
+            <input type="text" placeholder="Job Title" id="jobTitleIn" class="inputField">
+            <input type="number" placeholder="Annual Salary" id="annualIn" class="inputField">
+            <button id="submitButton">Submit</button>
+       </div>
         <h2>Add Employee</h2>
-        <input type="text" placeholder="First Name" id="firstIn" class="inputField" class="clearMe">
-        <input type="text" placeholder="Last Name" id="lastIn" class="inputField" class="clearMe">
-        <input type="number" placeholder="ID #" id="idIn" class="inputField" class="clearMe">
-        <input type="text" placeholder="Job Title" id="jobTitleIn" class="inputField" class="clearMe">
-        <input type="number" placeholder="Annual Salary" id="annualIn" class="inputField" class="clearMe">
-        <button id="submitButton">Submit</button>
+        
    </section>
-   <section id="output">
+   <section id="output" class="container">
         <h2>Employees</h2>
-        <div id="outputElement">
-            <table id="employeeTable">
+        <div id="outputElement" class="table-responsive">
+            <table id="employeeTable" class="table">
                 <thead>
                     <tr>
                         <th>First Name</th>
@@ -41,7 +47,7 @@
                 </tfoot>
             </table>
         </div>
-        <div id="totalSpot">
+        <div id="totalSpot" class="normal">
 
         </div>
    </section>

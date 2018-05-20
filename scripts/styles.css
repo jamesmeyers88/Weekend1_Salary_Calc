@@ -1,0 +1,18 @@
+table, th, td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+#totalSpot {
+    float: right;
+}
+
+.red {
+    background-color: rgb(143, 48, 48);
+    color: white
+}
