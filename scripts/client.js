@@ -1,5 +1,5 @@
 console.log('JS');
-$(document).ready(onReady);
+$(document).ready(atLoad);
 
 let allEmployees = [];
 
@@ -12,7 +12,8 @@ class Employee {
         this.salary = salary;
     }
 } //end Employee
-function onReady() {
+
+function atLoad() {
     console.log('ready!');
     $('#submitButton').on('click', addEmployee);
 }//end onReady
@@ -31,12 +32,17 @@ function addEmployee() {
 function calcMonthly() {
     let sum = 0;
     for (employee of allEmployees) {
-        sum += (employee.salary/12).toFixed(2);
+       sum += (employee.salary / 12);
     };// end for
     // append to DOM
     $('#totalSpot').empty();
     $('#totalSpot').append('<div>Total Monthly Salary Expense: ' + sum + '</div>');
     // if monthly >$20k change background to red
+    if(sum >= 20000.00){
+        $('#totalSpot').addClass('red');
+    } else {
+        $('#totalSpot').removeClass('red');
+    }
 }// end calcMonthly
 
 function displayEmployees() {
