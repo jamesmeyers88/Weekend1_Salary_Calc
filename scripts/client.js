@@ -33,11 +33,11 @@ function addEmployee() {
 function calcMonthly() {
     let totalMonthly = 0;
     for (employee of allEmployees) {
-       totalMonthly += (employee.salary / 12).toFixed(2);
+       totalMonthly += (employee.salary/ 12);
     };// end for
     // append to DOM
     $('#totalSpot').empty();
-    $('#totalSpot').append('<div>Total Monthly Salary Expense: $' + totalMonthly + '</div>');
+    $('#totalSpot').append('<div>Total Monthly Salary Expense: $' + totalMonthly.toFixed(2) + '</div>');
     // if monthly >$20k change background to red
     if(totalMonthly >= 20000.00){
         $('#totalSpot').addClass('red');
@@ -48,14 +48,14 @@ function calcMonthly() {
     }//end if/else
 }// end calcMonthly
 
-function deleteEmployee(){
-    console.log('in deleteEmployee');
-    //get element by ID/class
-   if(input == employee.id) {
-       allEmployees.splice()
-   }
-    // delete by slice
-}
+// function deleteEmployee(){
+//     console.log('in deleteEmployee');
+//     //get element by ID/class
+//    if(input == employee.id) {
+//        allEmployees.splice()
+//    }
+// }// end deleteEmployee
+
 function displayEmployees() {
     console.log('in displayEmployees');
     //target output to save as variable
