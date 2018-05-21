@@ -48,13 +48,13 @@ function calcMonthly() {
     }//end if/else
 }// end calcMonthly
 
-// function deleteEmployee(){
-//     console.log('in deleteEmployee');
-//     //get element by ID/class
-//    if(input == employee.id) {
-//        allEmployees.splice()
-//    }
-// }// end deleteEmployee
+function deleteEmployee(){
+    console.log('in deleteEmployee');
+    //get element by ID/class
+    if ($('#deleteIn').val() == employee.id) {
+       allEmployees.splice(this.id, 1)
+   };
+}// end deleteEmployee
 
 function displayEmployees() {
     console.log('in displayEmployees');
