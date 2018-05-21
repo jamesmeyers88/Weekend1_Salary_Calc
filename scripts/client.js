@@ -54,8 +54,13 @@ function deleteEmployee(){
     if ($('#deleteIn').val() == employee.id) {
        allEmployees.splice(this.id, 1)
    };
+    $('#deleteIn').val('');
+    displayEmployees()
 }// end deleteEmployee
 
+// function removeEmployee(){
+//     let removeIt = $()
+// }
 function displayEmployees() {
     console.log('in displayEmployees');
     //target output to save as variable
