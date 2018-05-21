@@ -1,14 +1,10 @@
 header {
     text-align: center;
-    background-color: grey;
-    padding: 20px
+    padding: 20px;
 }
 
 table, th, td {
-    border: 2px solid black;
-    padding: 2px;
     text-align: center;
-
 }
 
 #totalSpot {
@@ -20,12 +16,17 @@ table, th, td {
     margin: 5px;
 }
 
+.deleteButton {
+    float: right;
+    margin-top: 5%;
+}
+
 .red {
     background-color: rgb(143, 48, 48);
     color: white
 }
 
 
-/* .inputs {
-    align-self: center;
+/* .input {
+    align-items: center;
 } */

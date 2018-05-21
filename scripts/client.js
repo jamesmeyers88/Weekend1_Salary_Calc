@@ -15,7 +15,8 @@ class Employee {
 
 function atLoad() {
     console.log('ready!');
-    $('#submitButton').on('click', addEmployee);
+    $('.submitButton').on('click', addEmployee);
+    $('.deleteButton').on('click', deleteEmployee);
 }//end onReady
 
 function addEmployee() {
@@ -30,21 +31,31 @@ function addEmployee() {
 }//end storeEmployee
 
 function calcMonthly() {
-    let sum = 0;
+    let totalMonthly = 0;
     for (employee of allEmployees) {
-       sum += (employee.salary / 12);
+       totalMonthly += (employee.salary / 12).toFixed(2);
     };// end for
     // append to DOM
     $('#totalSpot').empty();
-    $('#totalSpot').append('<div>Total Monthly Salary Expense: ' + sum + '</div>');
+    $('#totalSpot').append('<div>Total Monthly Salary Expense: $' + totalMonthly + '</div>');
     // if monthly >$20k change background to red
-    if(sum >= 20000.00){
+    if(totalMonthly >= 20000.00){
         $('#totalSpot').addClass('red');
     } else {
+        //not needed until i add delete button. 
+        //might not work or be necessary
         $('#totalSpot').removeClass('red');
-    }
+    }//end if/else
 }// end calcMonthly
 
+function deleteEmployee(){
+    console.log('in deleteEmployee');
+    //get element by ID/class
+   if(input == employee.id) {
+       allEmployees.splice()
+   }
+    // delete by slice
+}
 function displayEmployees() {
     console.log('in displayEmployees');
     //target output to save as variable
@@ -54,7 +65,7 @@ function displayEmployees() {
     //loop through array
     for (employee of allEmployees) {
         // append employee info to DOM
-        let outputString = '<tr>';
+        let outputString = '<tr id="tableRows">';
         outputString += '<td>' + employee.first + '</td>';
         outputString += '<td>' + employee.last + '</td>';
         outputString += '<td>' + employee.id + '</td>';
