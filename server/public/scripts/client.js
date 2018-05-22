@@ -32,7 +32,7 @@ function addEmployee() {
 
 function calcMonthly() {
     let totalMonthly = 0;
-    for (employee of allEmployees) {
+    for (let employee of allEmployees) {
        totalMonthly += (employee.salary/ 12);
     };// end for
     // append to DOM
@@ -42,18 +42,19 @@ function calcMonthly() {
     if(totalMonthly >= 20000.00){
         $('#totalSpot').addClass('red');
     } else {
-        //not needed until i add delete button. 
-        //might not work or be necessary
         $('#totalSpot').removeClass('red');
     }//end if/else
+    console.log(totalMonthly);
 }// end calcMonthly
 
 function deleteEmployee(){
     console.log('in deleteEmployee');
     //get element by ID/class
-    if ($('#deleteIn').val() == employee.id) {
-       allEmployees.splice(this.id, 1)
-   };
+    for (let i = 0; i < allEmployees.length; i++) {
+        if ($('#deleteIn').val() == allEmployees[i].id) {
+            allEmployees.splice(i, 1);
+        };
+    }
     $('#deleteIn').val('');
     displayEmployees();
     calcMonthly();
@@ -66,7 +67,7 @@ function displayEmployees() {
     //empty output div
     employeeInfo.empty();
     //loop through array
-    for (employee of allEmployees) {
+    for (let employee of allEmployees) {
         // append employee info to DOM
         let outputString = '<tr id="tableRows">';
         outputString += '<td>' + employee.first + '</td>';
